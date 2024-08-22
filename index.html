@@ -27,6 +27,8 @@
         <label for="brushSize">Brush Size:</label>
         <input type="range" id="brushSize" min="0.5" max="50" value="5" onchange="setBrushSize(this.value)">
         <span id="brushSizeValue">5</span>
+        <button onclick="exportAsPNG()">Export as PNG</button>
+        <button onclick="exportAsJPG()">Export as JPG</button>
     </div>
 
     <canvas id="paintCanvas"></canvas>

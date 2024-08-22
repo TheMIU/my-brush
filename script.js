@@ -105,3 +105,35 @@ let colorPicker = new iro.ColorPicker("#colorWheel", {
 colorPicker.on('color:change', function (color) {
     setColor(color.hexString);
 });
+
+/////////////////////////////////
+// Export
+function exportAsPNG() {
+    const link = document.createElement('a');
+    link.download = 'canvas-drawing.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+}
+
+function exportAsJPG() {
+    // Create a temporary canvas to add a background color
+    const tempCanvas = document.createElement('canvas');
+    const tempCtx = tempCanvas.getContext('2d');
+
+    // Set the canvas size to match the original canvas
+    tempCanvas.width = canvas.width;
+    tempCanvas.height = canvas.height;
+
+    // Fill the background with white or any other color
+    tempCtx.fillStyle = 'white';
+    tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+
+    // Draw the original canvas on top of the background
+    tempCtx.drawImage(canvas, 0, 0);
+
+    // Create the download link
+    const link = document.createElement('a');
+    link.download = 'canvas-drawing.jpg';
+    link.href = tempCanvas.toDataURL('image/jpeg', 1.0);
+    link.click();
+}
