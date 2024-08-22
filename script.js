@@ -5,7 +5,7 @@ canvas.width = window.innerWidth * 0.8;
 canvas.height = window.innerHeight * 0.8;
 
 let painting = false;
-let currentColor = 'black';
+let currentColor = '#000000';
 let currentBrushSize = 5;  // Initialize brush size
 let undoStack = [];
 let redoStack = [];
@@ -69,7 +69,7 @@ function restoreState(popStack, pushStack) {
         const restoreState = popStack.pop();
         const img = new Image();
         img.src = restoreState;
-        img.onload = function() {
+        img.onload = function () {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(img, 0, 0);
         };
@@ -77,7 +77,7 @@ function restoreState(popStack, pushStack) {
 }
 
 // Add key bindings for Ctrl+Z (undo) and Ctrl+Shift+Z (redo)
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
     if (e.ctrlKey && e.key === 'z' && !e.shiftKey) {
         e.preventDefault();
         undo();
@@ -90,3 +90,18 @@ document.addEventListener('keydown', function(e) {
 canvas.addEventListener('mousedown', startPosition);
 canvas.addEventListener('mouseup', endPosition);
 canvas.addEventListener('mousemove', draw);
+
+
+/////////////////////////////////
+// Initialize the iro.js color wheel
+let colorPicker = new iro.ColorPicker("#colorWheel", {
+    width: 150,
+    color: "#000000", // Initial color
+    borderWidth: 1,
+    borderColor: "#fff"
+});
+
+// Update the drawing color when the color wheel changes
+colorPicker.on('color:change', function (color) {
+    setColor(color.hexString);
+});

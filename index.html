@@ -14,6 +14,13 @@
         <button onclick="setColor('red')">Red</button>
         <button onclick="setColor('green')">Green</button>
         <button onclick="setColor('blue')">Blue</button>
+
+         <label for="colorPicker">Color:</label>
+        <input type="color" id="colorPicker" onchange="setColor(this.value)">
+
+
+        <div id="colorWheel" style="position: absolute; right:20px; top:20px"></div>
+
         <button onclick="clearCanvas()">Clear</button>
         <button onclick="undo()">Undo</button>
         <button onclick="redo()">Redo</button>
@@ -23,6 +30,7 @@
     </div>
 
     <canvas id="paintCanvas"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5.5.1/dist/iro.min.js"></script>
     <script src="script.js"></script>
 </body>
 
