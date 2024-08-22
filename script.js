@@ -6,6 +6,7 @@ canvas.height = window.innerHeight * 0.8;
 
 let painting = false;
 let currentColor = 'black';
+let currentBrushSize = 5;  // Initialize brush size
 let undoStack = [];
 let redoStack = [];
 
@@ -23,7 +24,7 @@ function endPosition() {
 function draw(e) {
     if (!painting) return;
 
-    ctx.lineWidth = 5;
+    ctx.lineWidth = currentBrushSize;
     ctx.lineCap = 'round';
     ctx.strokeStyle = currentColor;
 
@@ -35,6 +36,11 @@ function draw(e) {
 
 function setColor(color) {
     currentColor = color;
+}
+
+function setBrushSize(size) {
+    currentBrushSize = size;  // Update brush size
+    document.getElementById('brushSizeValue').textContent = size;  // Update displayed size value
 }
 
 function clearCanvas() {
@@ -63,7 +69,7 @@ function restoreState(popStack, pushStack) {
         const restoreState = popStack.pop();
         const img = new Image();
         img.src = restoreState;
-        img.onload = function () {
+        img.onload = function() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(img, 0, 0);
         };
@@ -71,7 +77,7 @@ function restoreState(popStack, pushStack) {
 }
 
 // Add key bindings for Ctrl+Z (undo) and Ctrl+Shift+Z (redo)
-document.addEventListener('keydown', function (e) {
+document.addEventListener('keydown', function(e) {
     if (e.ctrlKey && e.key === 'z' && !e.shiftKey) {
         e.preventDefault();
         undo();

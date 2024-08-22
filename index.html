@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Paint App</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="toolbar">
         <button onclick="setColor('black')">Black</button>
@@ -15,9 +17,13 @@
         <button onclick="clearCanvas()">Clear</button>
         <button onclick="undo()">Undo</button>
         <button onclick="redo()">Redo</button>
+        <label for="brushSize">Brush Size:</label>
+        <input type="range" id="brushSize" min="0.5" max="50" value="5" onchange="setBrushSize(this.value)">
+        <span id="brushSizeValue">5</span>
     </div>
-    
+
     <canvas id="paintCanvas"></canvas>
     <script src="script.js"></script>
 </body>
+
 </html>
