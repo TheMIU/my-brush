@@ -155,39 +155,47 @@ colorPicker.on('color:change', function (color) {
 });
 
 /////////////////////////////////
-// Draggable toolbar
-// Get the toolbar element
-const toolbar = document.getElementById('toolbar');
-
-// Listen for right-click (contextmenu) event on the whole page
+// right click toolbar
 document.addEventListener('contextmenu', function (e) {
-    e.preventDefault(); // Prevent the default right-click menu
+    e.preventDefault(); // Prevent default context menu
 
-    // Position the toolbar at the mouse position
-    toolbar.style.left = `${e.clientX}px`;
-    toolbar.style.top = `${e.clientY}px`;
+    const toolbar = document.getElementById('toolbar');
+    const toolbarWidth = toolbar.offsetWidth;
+    const toolbarHeight = toolbar.offsetHeight;
+
+    // Get the viewport width and height
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+
+    // Calculate where to position the toolbar
+    let posX = e.clientX;
+    let posY = e.clientY;
+
+    // Check if the toolbar overflows beyond the right edge of the window
+    if (e.clientX + toolbarWidth > viewportWidth) {
+        posX = viewportWidth - toolbarWidth; // Adjust to the left
+    }
+
+    // Check if the toolbar overflows beyond the bottom edge of the window
+    if (e.clientY + toolbarHeight > viewportHeight) {
+        posY = viewportHeight - toolbarHeight; // Adjust upward
+    }
+
+    // Position the toolbar at the calculated position
+    toolbar.style.left = `${posX}px`;
+    toolbar.style.top = `${posY}px`;
 
     // Show the toolbar
     toolbar.style.display = 'block';
 });
 
-// Hide the toolbar when clicking elsewhere
-document.addEventListener('click', function () {
-    toolbar.style.display = 'none';
-});
-
-
-function dragToolbar(e) {
-    if (isDragging) {
-        // Move the toolbar to the new cursor position
-        toolbar.style.left = (e.clientX - offsetX) + 'px';
-        toolbar.style.top = (e.clientY - offsetY) + 'px';
+// Hide the toolbar when clicking outside
+document.addEventListener('click', function (e) {
+    const toolbar = document.getElementById('toolbar');
+    if (!toolbar.contains(e.target)) {
+        toolbar.style.display = 'none';
     }
-}
-
-function stopDragging() {
-    isDragging = false;
-}
+});
 
 /////////////////////////////////
 // Export
