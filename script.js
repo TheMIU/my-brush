@@ -91,6 +91,18 @@ canvas.addEventListener('mousedown', startPosition);
 canvas.addEventListener('mouseup', endPosition);
 canvas.addEventListener('mousemove', draw);
 
+////  Drawing tab input
+canvas.addEventListener('pointerdown', startPosition);
+canvas.addEventListener('pointerup', endPosition);
+canvas.addEventListener('pointermove', draw);
+
+// Prevent default touch actions for better pen support (like scrolling)
+canvas.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+}, { passive: false });
+canvas.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+}, { passive: false });
 
 /////////////////////////////////
 // Initialize the iro.js color wheel
