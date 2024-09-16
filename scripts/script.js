@@ -5,7 +5,7 @@ canvas.width = window.innerWidth * 0.8;
 canvas.height = window.innerHeight * 0.8;
 
 let painting = false;
-let currentColor = '#000000';
+let currentColor = '#ff0000';
 let currentBrushSize = 5;  // Initialize brush size
 let undoStack = [];
 let redoStack = [];
@@ -108,7 +108,7 @@ canvas.addEventListener('touchmove', function(e) {
 // Initialize the iro.js color wheel
 let colorPicker = new iro.ColorPicker("#colorWheel", {
     width: 150,
-    color: "#000000", // Initial color
+    color: "#ff0000", // Initial color
     borderWidth: 1,
     borderColor: "#fff"
 });

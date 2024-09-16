@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Paint App</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
     <div class="toolbar">
-        <button onclick="setColor('black')">Black</button>
+       <!--  <button onclick="setColor('black')">Black</button>
         <button onclick="setColor('red')">Red</button>
         <button onclick="setColor('green')">Green</button>
         <button onclick="setColor('blue')">Blue</button>
 
          <label for="colorPicker">Color:</label>
-        <input type="color" id="colorPicker" onchange="setColor(this.value)">
+        <input type="color" id="colorPicker" onchange="setColor(this.value)"> -->
 
 
         <div id="colorWheel" style="position: absolute; right:20px; top:20px"></div>
@@ -32,8 +32,8 @@
     </div>
 
     <canvas id="paintCanvas"></canvas>
-    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5.5.1/dist/iro.min.js"></script>
-    <script src="script.js"></script>
+    <script src="scripts/iro.min.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>
