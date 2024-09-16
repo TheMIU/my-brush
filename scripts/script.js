@@ -97,21 +97,51 @@ canvas.addEventListener('pointerup', endPosition);
 canvas.addEventListener('pointermove', draw);
 
 // Prevent default touch actions for better pen support (like scrolling)
-canvas.addEventListener('touchstart', function(e) {
+canvas.addEventListener('touchstart', function (e) {
     e.preventDefault();
 }, { passive: false });
-canvas.addEventListener('touchmove', function(e) {
+canvas.addEventListener('touchmove', function (e) {
     e.preventDefault();
 }, { passive: false });
 
 /////////////////////////////////
 // Initialize the iro.js color wheel
 let colorPicker = new iro.ColorPicker("#colorWheel", {
-    width: 150,
+    width: 200,
     color: "#ff0000", // Initial color
     borderWidth: 1,
-    borderColor: "#fff"
+    borderColor: "#fff",
+    layout: [
+        {
+            component: iro.ui.Wheel, // The color wheel
+            options: {
+                width: 200
+            }
+        },
+        {
+            component: iro.ui.Slider, // A slider to adjust the hue
+            options: {
+                sliderType: 'hue',
+                width: 200
+            }
+        },
+        {
+            component: iro.ui.Slider, // A slider to adjust saturation
+            options: {
+                sliderType: 'saturation',
+                width: 200
+            }
+        },
+        {
+            component: iro.ui.Slider, // A slider to adjust brightness
+            options: {
+                sliderType: 'value', // value represents brightness in iro.js
+                width: 200
+            }
+        }
+    ]
 });
+
 
 // Update the drawing color when the color wheel changes
 colorPicker.on('color:change', function (color) {
