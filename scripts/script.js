@@ -1,8 +1,8 @@
 const canvas = document.getElementById('paintCanvas');
 const ctx = canvas.getContext('2d');
 
-canvas.width = window.innerWidth * 0.8;
-canvas.height = window.innerHeight * 0.8;
+canvas.width = window.innerWidth * 0.98;
+canvas.height = window.innerHeight * 0.98;
 
 let painting = false;
 let currentColor = '#ff0000';
@@ -22,14 +22,20 @@ function endPosition() {
 }
 
 function draw(e) {
+    // Check if the left mouse button is pressed (button === 0)
+    if (e.buttons !== 1) return; // e.buttons indicates which buttons are being pressed (1 = left)
+
     if (!painting) return;
 
     ctx.lineWidth = currentBrushSize;
     ctx.lineCap = 'round';
     ctx.strokeStyle = currentColor;
 
+    // Get the coordinates of the mouse relative to the canvas
     ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
     ctx.stroke();
+
+    // Start a new path for smooth drawing
     ctx.beginPath();
     ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
 }
@@ -147,6 +153,41 @@ let colorPicker = new iro.ColorPicker("#colorWheel", {
 colorPicker.on('color:change', function (color) {
     setColor(color.hexString);
 });
+
+/////////////////////////////////
+// Draggable toolbar
+// Get the toolbar element
+const toolbar = document.getElementById('toolbar');
+
+// Listen for right-click (contextmenu) event on the whole page
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault(); // Prevent the default right-click menu
+
+    // Position the toolbar at the mouse position
+    toolbar.style.left = `${e.clientX}px`;
+    toolbar.style.top = `${e.clientY}px`;
+
+    // Show the toolbar
+    toolbar.style.display = 'block';
+});
+
+// Hide the toolbar when clicking elsewhere
+document.addEventListener('click', function () {
+    toolbar.style.display = 'none';
+});
+
+
+function dragToolbar(e) {
+    if (isDragging) {
+        // Move the toolbar to the new cursor position
+        toolbar.style.left = (e.clientX - offsetX) + 'px';
+        toolbar.style.top = (e.clientY - offsetY) + 'px';
+    }
+}
+
+function stopDragging() {
+    isDragging = false;
+}
 
 /////////////////////////////////
 // Export

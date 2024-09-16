@@ -8,10 +8,9 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
-<body>
-    <div class="toolbar">
-        <div id="colorWheel" style="position: absolute; right:20px; top:20px"></div>
-
+<body style="contain: paint;">
+    <div class="toolbar" id="toolbar">
+        <div id="colorWheel"></div>
         <button onclick="clearCanvas()">Clear</button>
         <button onclick="undo()">Undo</button>
         <button onclick="redo()">Redo</button>
