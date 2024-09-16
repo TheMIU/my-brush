@@ -12,13 +12,63 @@ body {
 .toolbar {
     padding: 10px;
     display: flex;
-    justify-content: center;
-    background-color: #5c81fa;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border: #000 solid 2px;
+    border-radius: 10px;
+    flex-direction: column;
     position: absolute;
     flex-wrap: wrap;
     display: none;
+}
+
+.toolbar input[type="range"] {
+    width: 100%;
+    /* Make the range input span the full width */
+    /* Space above and below the input */
+}
+
+#brushSizeValue {
+    font-size: 14px;
+    color: #333;
+    margin-left: 10px;
+    /* Space between the value and the input */
+}
+
+#colorWheel {
+    margin-bottom: 15px;
+    /* Space between the color wheel and brush section */
+}
+
+.topBar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ccc;
+}
+
+.topBar button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-right: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.topBar button:hover {
+    background-color: #0056b3;
+}
+
+.topBar p {
+    margin-left: 20px;
+    font-size: 14px;
+    color: #333;
 }
 
 canvas {

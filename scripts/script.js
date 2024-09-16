@@ -2,7 +2,7 @@ const canvas = document.getElementById('paintCanvas');
 const ctx = canvas.getContext('2d');
 
 canvas.width = window.innerWidth * 0.98;
-canvas.height = window.innerHeight * 0.98;
+canvas.height = window.innerHeight * 0.88;
 
 let painting = false;
 let currentColor = '#ff0000';

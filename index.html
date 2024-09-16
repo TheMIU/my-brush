@@ -6,19 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Paint App</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body style="contain: paint;">
+    <div class="topBar">
+        <button onclick="undo()"> <i class="fa-solid fa-rotate-left"></i> Undo</button>
+        <button onclick="redo()"> <i class="fa-solid fa-rotate-right"></i> Redo</button>
+        <button onclick="exportAsPNG()"> <i class="fa-solid fa-download"></i> .PNG</button>
+        <button onclick="exportAsJPG()"> <i class="fa-solid fa-download"></i> .JPG</button>
+        <button onclick="clearCanvas()"> <i class="fa-solid fa-brush fa-rotate-180"></i> Clear</button>
+
+        <p> Right click to get the color wheel</p>
+    </div>
+
     <div class="toolbar" id="toolbar">
         <div id="colorWheel"></div>
-        <button onclick="clearCanvas()">Clear</button>
-        <button onclick="undo()">Undo</button>
-        <button onclick="redo()">Redo</button>
-        <label for="brushSize">Brush Size:</label>
-        <input type="range" id="brushSize" min="0.5" max="50" value="5" onchange="setBrushSize(this.value)">
-        <span id="brushSizeValue">5</span>
-        <button onclick="exportAsPNG()">Export as PNG</button>
-        <button onclick="exportAsJPG()">Export as JPG</button>
+
+        <div>
+            <label for="brushSize">Brush</label>
+            <input type="range" id="brushSize" min="0.5" max="50" value="5" onchange="setBrushSize(this.value)">
+            <span id="brushSizeValue">5</span>
+        </div>
     </div>
 
     <canvas id="paintCanvas"></canvas>
