@@ -11,14 +11,19 @@ let undoStack = [];
 let redoStack = [];
 
 function startPosition(e) {
-    painting = true;
-    saveState(undoStack, redoStack);
-    draw(e);
+    // Only start drawing if the left mouse button (button 0) is clicked
+    if (e.button === 0) {
+        painting = true;
+        saveState(undoStack); // Save the state only for left-click actions
+        draw(e); // Call the draw function immediately after saving state
+    }
 }
 
 function endPosition() {
-    painting = false;
-    ctx.beginPath();
+    if (painting) {
+        painting = false;
+        ctx.beginPath();
+    }
 }
 
 function draw(e) {
@@ -56,7 +61,7 @@ function clearCanvas() {
 
 function saveState(undoStack, redoStack, keepRedo = false) {
     if (!keepRedo) {
-        redoStack.length = 0;
+        redoStack = 0;
     }
     undoStack.push(canvas.toDataURL());
 }
@@ -190,7 +195,7 @@ document.addEventListener('contextmenu', function (e) {
 });
 
 // Hide the toolbar when clicking outside
-document.addEventListener('click', function (e) {
+document.addEventListener('mousedown', function (e) {
     const toolbar = document.getElementById('toolbar');
     if (!toolbar.contains(e.target)) {
         toolbar.style.display = 'none';
