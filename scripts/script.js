@@ -160,47 +160,6 @@ colorPicker.on('color:change', function (color) {
 });
 
 /////////////////////////////////
-// right click toolbar
-document.addEventListener('contextmenu', function (e) {
-    e.preventDefault(); // Prevent default context menu
-
-    const toolbar = document.getElementById('toolbar');
-    const toolbarWidth = toolbar.offsetWidth;
-    const toolbarHeight = toolbar.offsetHeight;
-
-    // Get the viewport width and height
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
-
-    // Calculate where to position the toolbar
-    let posX = e.clientX;
-    let posY = e.clientY;
-
-    // Check if the toolbar overflows beyond the right edge of the window
-    if (e.clientX + toolbarWidth > viewportWidth) {
-        posX = viewportWidth - toolbarWidth; // Adjust to the left
-    }
-
-    // Check if the toolbar overflows beyond the bottom edge of the window
-    if (e.clientY + toolbarHeight > viewportHeight) {
-        posY = viewportHeight - toolbarHeight; // Adjust upward
-    }
-
-    // Position the toolbar at the calculated position
-    toolbar.style.left = `${posX}px`;
-    toolbar.style.top = `${posY}px`;
-
-    // Show the toolbar
-    toolbar.style.display = 'block';
-});
-
-// Hide the toolbar when clicking outside
-document.addEventListener('mousedown', function (e) {
-    const toolbar = document.getElementById('toolbar');
-    if (!toolbar.contains(e.target)) {
-        toolbar.style.display = 'none';
-    }
-});
 
 /////////////////////////////////
 // Export

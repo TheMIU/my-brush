@@ -18,15 +18,14 @@ body {
     border: #000 solid 2px;
     border-radius: 10px;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
+    right: 0;
+    top: 50px;
     flex-wrap: wrap;
-    display: none;
 }
 
 .toolbar input[type="range"] {
     width: 100%;
-    /* Make the range input span the full width */
-    /* Space above and below the input */
 }
 
 #brushSizeValue {
@@ -48,6 +47,8 @@ body {
     padding: 10px;
     background-color: #f4f4f4;
     border-bottom: 1px solid #ccc;
+    position: fixed;
+    top: 0;
 }
 
 .topBar button {
@@ -74,4 +75,23 @@ body {
 canvas {
     border: 1px solid #000;
     background-color: #fff;
+}
+
+#toggleToolsBtn {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    background-color: black;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+        font-size: 30px;
+        color: white;
+    }
 }

@@ -18,8 +18,6 @@
         <button onclick="exportAsPNG()"> <i class="fa-solid fa-download"></i> .PNG</button>
         <button onclick="exportAsJPG()"> <i class="fa-solid fa-download"></i> .JPG</button>
         <button onclick="clearCanvas()"> <i class="fa-solid fa-brush fa-rotate-180"></i> Clear</button>
-
-        <p> Right click to get the color wheel</p>
     </div>
 
     <div class="toolbar" id="toolbar">
@@ -30,6 +28,10 @@
             <input type="range" id="brushSize" min="0.5" max="50" value="5" onchange="setBrushSize(this.value)">
             <span id="brushSizeValue">5</span>
         </div>
+    </div>
+
+    <div id="toggleToolsBtn">
+        <i class="fa-solid fa-plus"></i>
     </div>
 
     <canvas id="paintCanvas"></canvas>
