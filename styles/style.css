@@ -85,13 +85,19 @@ canvas {
     bottom: 30px;
     background-color: black;
     border-radius: 50%;
-
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
 
-    i {
-        font-size: 30px;
-        color: white;
-    }
+#toggleToolsBtn i {
+    font-size: 30px;
+    color: white;
+}
+
+.topBar,
+.toolbar {
+    display: none;
 }

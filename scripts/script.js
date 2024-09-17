@@ -1,8 +1,8 @@
 const canvas = document.getElementById('paintCanvas');
 const ctx = canvas.getContext('2d');
 
-canvas.width = window.innerWidth * 0.98;
-canvas.height = window.innerHeight * 0.88;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 let painting = false;
 let currentColor = '#ff0000';
@@ -160,6 +160,27 @@ colorPicker.on('color:change', function (color) {
 });
 
 /////////////////////////////////
+
+
+/////////////////////////////////
+const toggleBtn = document.getElementById('toggleToolsBtn');
+const topBar = document.querySelector('.topBar');
+const toolbar = document.querySelector('.toolbar');
+let isOpen = false;
+
+toggleBtn.addEventListener('click', () => {
+    // Toggle rotation
+    if (isOpen) {
+        toggleBtn.style.transform = 'rotate(0deg)';
+    } else {
+        toggleBtn.style.transform = 'rotate(135deg)';
+    }
+    isOpen = !isOpen;
+
+    // Toggle visibility of topBar and toolbar
+    topBar.style.display = isOpen ? 'flex' : 'none';
+    toolbar.style.display = isOpen ? 'block' : 'none';
+});
 
 /////////////////////////////////
 // Export
