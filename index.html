@@ -23,10 +23,12 @@
     <div class="toolbar" id="toolbar">
         <div id="colorWheel"></div>
 
-        <div>
-            <label for="brushSize">Brush</label>
+        <div class="slider-container">
+            <div class="brush-title">
+                <label for="brushSize">Brush size: </label>
+                <span id="brushSizeValue">5</span>
+            </div>
             <input type="range" id="brushSize" min="0.5" max="50" value="5" onchange="setBrushSize(this.value)">
-            <span id="brushSizeValue">5</span>
         </div>
     </div>
 
