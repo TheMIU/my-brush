@@ -82,7 +82,7 @@ canvas {
     height: 60px;
     position: fixed;
     right: 30px;
-    bottom: 30px;
+    bottom: 50px;
     background-color: black;
     border-radius: 50%;
     display: flex;
