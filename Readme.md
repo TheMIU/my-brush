@@ -23,7 +23,7 @@ You can use **My Brush** directly in your browser! Simply [click here](#) to sta
 4. Use undo and redo to perfect your creation.
 
 ## Screenshots 📸
-
+![preview](https://)
 
 ## License 📄
 
