@@ -1,12 +1,11 @@
 const canvas = document.getElementById('paintCanvas');
 const ctx = canvas.getContext('2d');
 
-/* canvas.width = window.innerWidth;
+canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
- */
 
-canvas.width = document.documentElement.clientWidth;
-canvas.height = document.documentElement.clientHeight;
+/* canvas.width = document.documentElement.clientWidth;
+canvas.height = document.documentElement.clientHeight; */
 
 
 let painting = false;
@@ -218,3 +217,48 @@ function exportAsJPG() {
     link.href = tempCanvas.toDataURL('image/jpeg', 1.0);
     link.click();
 }
+
+/////////////////////////
+// brush cursor
+const brushCursor = document.getElementById('brushCursor');
+
+// Update cursor position
+canvas.addEventListener('mousemove', (e) => {
+    const x = e.clientX;
+    const y = e.clientY;
+    brushCursor.style.left = `${x}px`;
+    brushCursor.style.top = `${y}px`;
+});
+
+// Update brush cursor size and color based on the selected brush size and color
+function setBrushSize(size) {
+    currentBrushSize = size;
+    document.getElementById('brushSizeValue').textContent = size;
+
+    // Update brush cursor size
+    brushCursor.style.width = `${size}px`;
+    brushCursor.style.height = `${size}px`;
+}
+
+function setColor(color) {
+    currentColor = color;
+
+    // Update brush cursor color
+    brushCursor.style.backgroundColor = color;
+}
+
+// Hide cursor when leaving canvas
+canvas.addEventListener('mouseleave', () => {
+    brushCursor.style.display = 'none';
+});
+
+// Show cursor when on the canvas
+canvas.addEventListener('mouseenter', () => {
+    brushCursor.style.display = 'block';
+});
+
+///////////////////////////
+// disable right click
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+});

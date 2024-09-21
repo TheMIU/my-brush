@@ -90,14 +90,33 @@ canvas {
     align-items: center;
     cursor: pointer;
     transition: transform 0.3s ease;
+    user-select: none;
 }
 
 #toggleToolsBtn i {
     font-size: 30px;
     color: white;
+    user-select: none;
 }
 
 .topBar,
 .toolbar {
     display: none;
+}
+
+/* ////////////////// */
+#paintCanvas {
+    cursor: none;
+}
+
+#brushCursor {
+    display: none;
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    background-color: red;
+    width: 10px;
+    height: 10px;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
 }
