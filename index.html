@@ -7,18 +7,15 @@
     <title>My Brush 🎨</title>
     <link rel="icon" href="images/icon.ico" type="image/png">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body style="contain: paint;">
     <div class="topBar">
-        <button onclick="undo()"> <i class="fa-solid fa-rotate-left"></i> Undo</button>
-        <button onclick="redo()"> <i class="fa-solid fa-rotate-right"></i> Redo</button>
-        <button onclick="exportAsPNG()"> <i class="fa-solid fa-download"></i> .PNG</button>
-        <button onclick="exportAsJPG()"> <i class="fa-solid fa-download"></i> .JPG</button>
-        <button onclick="clearCanvas()"> <i class="fa-solid fa-brush fa-rotate-180"></i> Clear</button>
+        <button onclick="undo()"> <img src="images/icons/rotate-left-solid.svg" width="14px"> Undo</button>
+        <button onclick="redo()"> <img src="images/icons/rotate-right-solid.svg" width="14px"> Redo</button>
+        <button onclick="exportAsPNG()"> <img src="images/icons/download-solid.svg" width="14px"> PNG</button>
+        <button onclick="exportAsJPG()"> <img src="images/icons/download-solid.svg" width="14px"> JPG</button>
+        <button onclick="clearCanvas()"> <img src="images/icons/eraser-solid.svg" width="14px"> Clear</button>
     </div>
 
     <div class="toolbar" id="toolbar">
@@ -26,15 +23,15 @@
 
         <div class="slider-container">
             <div class="brush-title">
-                <label for="brushSize">Brush size: </label>
+                <label for="brushSize"> <img src="images/icons/brush-solid.svg" width="20px"> Brush size: </label>
                 <span id="brushSizeValue">5</span>
             </div>
-            <input type="range" id="brushSize" min="0.5" max="50" value="5" onchange="setBrushSize(this.value)">
+            <input type="range" id="brushSize" min="0.5" max="50.5" value="5" onchange="setBrushSize(this.value)">
         </div>
     </div>
 
     <div id="toggleToolsBtn">
-        <i class="fa-solid fa-plus"></i>
+        <img src="images/icons/plus-solid.svg" width="30px">
     </div>
 
     <div id="brushCursor"></div>

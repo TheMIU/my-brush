@@ -1,3 +1,14 @@
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('fonts/ubuntu.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -31,6 +42,17 @@ body {
 .brush-title {
     font-size: 14px;
     color: #333;
+    display: flex;
+    margin-right: 10px;
+
+    img {
+        margin-right: 10px;
+    }
+
+    label {
+        margin-right: 10px;
+        display: flex;
+    }
 }
 
 #colorWheel {
@@ -57,6 +79,12 @@ body {
     margin: 1px;
     border-radius: 4px;
     cursor: pointer;
+
+    display: flex;
+
+    img {
+        padding-right: 3px;
+    }
 }
 
 .topBar button:hover {
@@ -90,12 +118,6 @@ canvas {
     align-items: center;
     cursor: pointer;
     transition: transform 0.3s ease;
-    user-select: none;
-}
-
-#toggleToolsBtn i {
-    font-size: 30px;
-    color: white;
     user-select: none;
 }
 
