@@ -13,7 +13,7 @@
 
 ## Try It Now! 🚀
 
-You can use **My Brush** directly in your browser! Simply [click here](#) to start drawing.
+You can use **My Brush** directly in your browser! Simply [click here](https://themiu.github.io/my-brush/) to start drawing.
 
 ## How to Use
 
@@ -23,7 +23,7 @@ You can use **My Brush** directly in your browser! Simply [click here](#) to sta
 4. Use undo and redo to perfect your creation.
 
 ## Screenshots 📸
-![preview](https://)
+![preview](https://raw.githubusercontent.com/TheMIU/my-brush/refs/heads/main/images/preview.png)
 
 ## License 📄
 
