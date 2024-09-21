@@ -119,4 +119,5 @@ canvas {
     height: 10px;
     transform: translate(-50%, -50%);
     z-index: 9999;
+    border: #777 solid 1px;
 }
