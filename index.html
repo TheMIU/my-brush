@@ -21,11 +21,19 @@
     <div class="toolbar" id="toolbar">
         <div id="colorWheel"></div>
 
-        <button id="toggleEraserBtn" onclick="toggleEraser()">Eraser</button>
+        <div id="brush-eraser-container">
+            <button id="brushBtn" onclick="selectBrush()" disabled="true">
+                <img src="images/icons/brush-solid.svg" width="15px">
+                Brush</button>
+            <button id="eraserBtn" onclick="selectEraser()">
+                <img src="images/icons/eraser-solid.svg" width="15px">
+                Eraser</button>
+        </div>
 
         <div class="slider-container">
             <div class="brush-title">
-                <img src="images/icons/brush-solid.svg" width="20px">
+                <img id="brushIcon" src="images/icons/brush-solid-dark.svg" width="20px">
+                <img id="eraseIcon" src="images/icons/eraser-solid-dark.svg" width="20px" style="display: none;">
                 <label for="brushSize" id="brushSizeLabel"> Brush size: </label>
                 <span id="brushSizeValue">5</span>
             </div>

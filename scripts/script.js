@@ -265,29 +265,41 @@ document.addEventListener('contextmenu', function (e) {
 
 ///////////////////////////
 // Eraser
-let isEraserActive = false;
+const toggleEraserBtn = document.getElementById('toggleEraserBtn');
+const colorWheel = document.getElementById('colorWheel');
+const label = document.getElementById('brushSizeLabel');
 
-function toggleEraser() {
-    const toggleEraserBtn = document.getElementById('toggleEraserBtn');
-    const colorWheel = document.getElementById('colorWheel');
-    const label = document.getElementById('brushSizeLabel');
-
-    isEraserActive = !isEraserActive;
-
-    if (isEraserActive) {
-        ctx.globalCompositeOperation = 'destination-out';  // Set to eraser mode (clearing pixels)
-        toggleEraserBtn.classList.add('active');
-        toggleEraserBtn.textContent = "Brush";
-        label.textContent = " Eraser size: ";
-        colorWheel.classList.add('disabled-color-wheel');
-        brushCursor.style.backgroundColor = 'white';
-        
+function activateEraser(eraserMode) {
+    if (eraserMode) { // active eraser (clearing pixels)
+        ctx.globalCompositeOperation = 'destination-out';
     } else {
-        ctx.globalCompositeOperation = 'source-over';  // Set back to normal drawing mode
-        toggleEraserBtn.classList.remove('active');
-        toggleEraserBtn.textContent = "Eraser";
-        label.textContent = " Brush size: ";
-        colorWheel.classList.remove('disabled-color-wheel');
-        brushCursor.style.backgroundColor = currentColor;
+        ctx.globalCompositeOperation = 'source-over';
     }
+}
+
+////
+function selectBrush() {
+    // Disable the brush button and enable the eraser button
+    document.getElementById('brushBtn').disabled = true;
+    document.getElementById('eraserBtn').disabled = false;
+
+    brushCursor.style.backgroundColor = currentColor;
+    label.textContent = " Brush size: ";
+    colorWheel.classList.remove('disabled-color-wheel');
+    document.getElementById('brushIcon').style.display = 'flex';
+    document.getElementById('eraseIcon').style.display = 'none';
+    activateEraser(false);
+}
+
+function selectEraser() {
+    // Disable the eraser button and enable the brush button
+    document.getElementById('eraserBtn').disabled = true;
+    document.getElementById('brushBtn').disabled = false;
+
+    brushCursor.style.backgroundColor = 'white';
+    label.textContent = " Eraser size: ";
+    colorWheel.classList.add('disabled-color-wheel');
+    document.getElementById('brushIcon').style.display = 'none';
+    document.getElementById('eraseIcon').style.display = 'flex';
+    activateEraser(true);
 }

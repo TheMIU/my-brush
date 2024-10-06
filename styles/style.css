@@ -43,6 +43,7 @@ body {
     font-size: 14px;
     color: #333;
     display: flex;
+    align-items: center;
     margin-right: 10px;
 
     img {
@@ -145,21 +146,42 @@ canvas {
 }
 
 /* ////////////////// */
-#toggleEraserBtn {
-    background-color: #e74c3c;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
-#toggleEraserBtn.active {
-    background-color: #3498db;
-}
-
 .disabled-color-wheel {
     pointer-events: none;
-    opacity: 0.2;
+    opacity: 0.5;
+}
+
+#brush-eraser-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#brushBtn{
+    border-radius: 10px 0px 0px 10px;
+}
+#eraserBtn{
+    border-radius: 0px 10px 10px 0px;
+}
+
+
+#brushBtn,
+#eraserBtn {
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    background-color: #8a8a8a;
+    color: white;
+    transition: background-color 0.3s ease;
+    padding: 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#brushBtn:disabled,
+#eraserBtn:disabled {
+    background-color: #000000;
+
 }
