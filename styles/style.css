@@ -158,3 +158,8 @@ canvas {
 #toggleEraserBtn.active {
     background-color: #3498db;
 }
+
+.disabled-color-wheel {
+    pointer-events: none;
+    opacity: 0.5;
+}

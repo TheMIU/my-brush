@@ -269,6 +269,7 @@ let isEraserActive = false;
 
 function toggleEraser() {
     const toggleEraserBtn = document.getElementById('toggleEraserBtn');
+    const colorWheel = document.getElementById('colorWheel');
 
     isEraserActive = !isEraserActive;
 
@@ -276,9 +277,11 @@ function toggleEraser() {
         ctx.globalCompositeOperation = 'destination-out';  // Set to eraser mode (clearing pixels)
         toggleEraserBtn.classList.add('active');
         toggleEraserBtn.textContent = "Brush";
+        colorWheel.classList.add('disabled-color-wheel');
     } else {
         ctx.globalCompositeOperation = 'source-over';  // Set back to normal drawing mode
         toggleEraserBtn.classList.remove('active');
-        toggleEraserBtn.textContent = "Eraser"; 
+        toggleEraserBtn.textContent = "Eraser";
+        colorWheel.classList.remove('disabled-color-wheel');
     }
 }
