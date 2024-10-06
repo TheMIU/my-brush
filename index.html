@@ -25,7 +25,8 @@
 
         <div class="slider-container">
             <div class="brush-title">
-                <label for="brushSize"> <img src="images/icons/brush-solid.svg" width="20px"> Brush size: </label>
+                <img src="images/icons/brush-solid.svg" width="20px">
+                <label for="brushSize" id="brushSizeLabel"> Brush size: </label>
                 <span id="brushSizeValue">5</span>
             </div>
             <input type="range" id="brushSize" min="0.5" max="50.5" value="5" onchange="setBrushSize(this.value)">

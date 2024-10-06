@@ -270,6 +270,7 @@ let isEraserActive = false;
 function toggleEraser() {
     const toggleEraserBtn = document.getElementById('toggleEraserBtn');
     const colorWheel = document.getElementById('colorWheel');
+    const label = document.getElementById('brushSizeLabel');
 
     isEraserActive = !isEraserActive;
 
@@ -277,11 +278,16 @@ function toggleEraser() {
         ctx.globalCompositeOperation = 'destination-out';  // Set to eraser mode (clearing pixels)
         toggleEraserBtn.classList.add('active');
         toggleEraserBtn.textContent = "Brush";
+        label.textContent = " Eraser size: ";
         colorWheel.classList.add('disabled-color-wheel');
+        brushCursor.style.backgroundColor = 'white';
+        
     } else {
         ctx.globalCompositeOperation = 'source-over';  // Set back to normal drawing mode
         toggleEraserBtn.classList.remove('active');
         toggleEraserBtn.textContent = "Eraser";
+        label.textContent = " Brush size: ";
         colorWheel.classList.remove('disabled-color-wheel');
+        brushCursor.style.backgroundColor = currentColor;
     }
 }
