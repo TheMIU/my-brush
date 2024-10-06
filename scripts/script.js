@@ -262,3 +262,23 @@ canvas.addEventListener('mouseenter', () => {
 document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
 });
+
+///////////////////////////
+// Eraser
+let isEraserActive = false;
+
+function toggleEraser() {
+    const toggleEraserBtn = document.getElementById('toggleEraserBtn');
+
+    isEraserActive = !isEraserActive;
+
+    if (isEraserActive) {
+        ctx.globalCompositeOperation = 'destination-out';  // Set to eraser mode (clearing pixels)
+        toggleEraserBtn.classList.add('active');
+        toggleEraserBtn.textContent = "Brush";
+    } else {
+        ctx.globalCompositeOperation = 'source-over';  // Set back to normal drawing mode
+        toggleEraserBtn.classList.remove('active');
+        toggleEraserBtn.textContent = "Eraser"; 
+    }
+}

@@ -143,3 +143,18 @@ canvas {
     z-index: 9999;
     border: #777 solid 1px;
 }
+
+/* ////////////////// */
+#toggleEraserBtn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#toggleEraserBtn.active {
+    background-color: #3498db;
+}
