@@ -186,6 +186,27 @@ toggleBtn.addEventListener('click', () => {
     toolbar.style.display = isOpen ? 'block' : 'none';
 });
 
+/// button toggle
+const topBarButtons = document.querySelectorAll('.topBar button');
+
+topBarButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        button.classList.add('clicked');
+
+        setTimeout(() => {
+            button.classList.remove('clicked');
+        }, 500);
+    });
+});
+
+toggleBtn.addEventListener('click', () => {
+    toggleBtn.classList.add('clicked');
+
+    setTimeout(() => {
+        toggleBtn.classList.remove('clicked');
+    }, 500);
+});
+
 /////////////////////////////////
 // Export
 function exportAsPNG() {
@@ -303,3 +324,4 @@ function selectEraser() {
     document.getElementById('eraseIcon').style.display = 'flex';
     activateEraser(true);
 }
+

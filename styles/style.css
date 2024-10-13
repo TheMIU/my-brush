@@ -88,8 +88,18 @@ body {
     }
 }
 
-.topBar button:hover {
-    background-color: #0056b3;
+@keyframes buttonClickAnimation {
+    from {
+        background-color: #0056b3;
+    }
+
+    to {
+        background-color: #000000;
+    }
+}
+
+.topBar button.clicked {
+    animation: buttonClickAnimation 1s ease forwards;
 }
 
 .topBar p {
@@ -120,6 +130,10 @@ canvas {
     cursor: pointer;
     transition: transform 0.3s ease;
     user-select: none;
+}
+
+#toggleToolsBtn.clicked {
+    animation: buttonClickAnimation 1s ease forwards;
 }
 
 .topBar,
@@ -157,10 +171,11 @@ canvas {
     margin-bottom: 10px;
 }
 
-#brushBtn{
+#brushBtn {
     border-radius: 10px 0px 0px 10px;
 }
-#eraserBtn{
+
+#eraserBtn {
     border-radius: 0px 10px 10px 0px;
 }
 
