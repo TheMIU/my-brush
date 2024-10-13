@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Ubuntu';
-    src: url('fonts/ubuntu.ttf') format('truetype');
+    src: url('../fonts/ubuntu.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -18,6 +18,22 @@ body {
     justify-content: center;
     height: 100vh;
     background-color: #f0f0f0;
+
+    /* Disable selection for the whole body */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+button,
+canvas,
+.toolbar,
+.topBar {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .toolbar {
